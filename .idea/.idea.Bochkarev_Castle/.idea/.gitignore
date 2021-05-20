@@ -1,0 +1,11 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/.idea.Bochkarev_Castle.iml
+/projectSettingsUpdater.xml
+/modules.xml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../:\GitHub\Bochkarev_Castle\.idea\.idea.Bochkarev_Castle\.idea/dataSources/
+/dataSources.local.xml

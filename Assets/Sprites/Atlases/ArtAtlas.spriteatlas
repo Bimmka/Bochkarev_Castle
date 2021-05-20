@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ArtAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: a5b074d8472fe63418af4f54639be47f, type: 3}
+    totalSpriteSurfaceArea: 1853715
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d4e9e8f08eb33f8489140205a6dc68d7, type: 3}
+  - {fileID: -8368889122832138316, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 6023061381179382713, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 7091896407034999245, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 3091911260011585638, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -3869471882056242560, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 6895942478848687437, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -5745509809688785032, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -1807240511790276694, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 852996047910280422, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -3985801359135281816, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -2676314116143653651, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -9222977988974367727, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 2724785405782809600, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 3048387912117686826, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 8039393783662897413, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 1233484305437932809, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 4778538382341489155, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -2333149733560817536, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 3677183421183187694, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 1049004448675338815, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 7072515228236523226, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -6965072285688140330, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -3158902008653571486, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 7542459441271879584, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -2266653593844564684, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 6351963357451272229, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -6948151647213559437, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 7449052399205803541, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 2781533676904308770, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 6384537630571050319, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -2153854721710166906, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -6312867915661670000, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -939168919852961171, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -6261783818923089053, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -7908921610504284310, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: 21300000, guid: 71501edd9f8c70241bf027f91888762f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - enemy_knight
+  - weapon_icons_18
+  - weapon_icons_19
+  - weapon_icons_10
+  - weapon_icons_11
+  - weapon_icons_12
+  - weapon_icons_13
+  - weapon_icons_14
+  - weapon_icons_15
+  - weapon_icons_16
+  - weapon_icons_17
+  - weapon_icons_21
+  - weapon_icons_20
+  - weapon_icons_23
+  - weapon_icons_22
+  - weapon_icons_25
+  - weapon_icons_24
+  - weapon_icons_27
+  - weapon_icons_26
+  - weapon_icons_29
+  - weapon_icons_28
+  - weapon_icons_34
+  - weapon_icons_32
+  - weapon_icons_33
+  - weapon_icons_30
+  - weapon_icons_31
+  - weapon_icons_9
+  - weapon_icons_8
+  - weapon_icons_1
+  - weapon_icons_0
+  - weapon_icons_3
+  - weapon_icons_2
+  - weapon_icons_5
+  - weapon_icons_4
+  - weapon_icons_7
+  - weapon_icons_6
+  - player_knight
+  m_RenderDataMap: {}
+  m_Tag: ArtAtlas
+  m_IsVariant: 0
