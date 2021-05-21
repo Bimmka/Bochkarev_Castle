@@ -7,7 +7,6 @@ using UnityEngine.UI;
 /// <summary>
 /// Класс UI окна инвентаря 
 /// </summary>
-[RequireComponent(typeof(Canvas))]
 public class UIInventory : MonoBehaviour
 {
    [Header("Основные взаимодействия с окном инвентаря")]
@@ -16,17 +15,20 @@ public class UIInventory : MonoBehaviour
 
    [Tooltip("Кнопка закрытия инвентаря")]
    [SerializeField] private Button closeButton;
+   
+   [Tooltip("Основной канвас для отображения инвентаря")]
+   [SerializeField] private Canvas canvas;
 
    private IUIItem[] items;
 
    private Dictionary<IUIItem, Item_SO> displayedItems = new Dictionary<IUIItem, Item_SO>();
 
-   private Canvas canvas;
+   
 
    private void Awake()
    {
-      TryGetComponent(out canvas);
       items = GetComponentsInChildren<IUIItem>(true).ToArray();
+      ResetCells();
       openButton.onClick.AddListener(OpenWindow);
       closeButton.onClick.AddListener(CloseWindow);
 
@@ -39,6 +41,17 @@ public class UIInventory : MonoBehaviour
       closeButton.onClick.RemoveListener(CloseWindow);
       
       PlayerInventory.OnInventoryChanged -= DisplayItem;
+   }
+   
+   /// <summary>
+   /// Метод для сброса в дефолт всех ячеек
+   /// </summary>
+   private void ResetCells()
+   {
+      for (int i = 0; i < items.Length; i++)
+      {
+         items[i].DisableItem();
+      }
    }
    /// <summary>
    /// Метод для включения канваса

@@ -30,11 +30,11 @@ public class ItemTip : MonoBehaviour
 
     private RectTransform rectTransform;
 
-    public static event Action<Item_SO> OnItemUsed;
+    public static event Action<Item_SO, Action> OnItemUsed;
     public static event Action<Item_SO> OnItemDestroyed; 
     private void Awake()
     {
-        UIItem.OnItemClicked += SetTip;
+        UIInventoryItem.OnItemClicked += SetTip;
         
         closeButton.onClick.AddListener(DisableTip);
         useButton.onClick.AddListener(UseItem);
@@ -47,7 +47,7 @@ public class ItemTip : MonoBehaviour
 
     private void OnDestroy()
     {
-        UIItem.OnItemClicked -= SetTip;
+        UIInventoryItem.OnItemClicked -= SetTip;
         
         closeButton.onClick.RemoveListener(DisableTip);
         useButton.onClick.RemoveListener(UseItem);
@@ -58,7 +58,12 @@ public class ItemTip : MonoBehaviour
     {
         DisableTip();
     }
-
+    
+    /// <summary>
+    /// Постановка подсказки
+    /// </summary>
+    /// <param name="itemTransform">Куда ставить</param>
+    /// <param name="item">Какой итем выставляем</param>
     private void SetTip(RectTransform itemTransform, Item_SO item)
     {
         currentItem = item;
@@ -68,24 +73,31 @@ public class ItemTip : MonoBehaviour
         itemName.text = item.ItemName;
         ChangeGameObjectActiveState(true);
     }
-
+    /// <summary>
+    /// Использование предмета
+    /// </summary>
     private void UseItem()
     {
         DisableTip();
-        OnItemUsed?.Invoke(currentItem);
+        OnItemUsed?.Invoke(currentItem, () => DestroyItem());
     }
-
+    /// <summary>
+    /// Убираем предмет 
+    /// </summary>
     private void DestroyItem()
     {
         DisableTip();
         OnItemDestroyed?.Invoke(currentItem);
     }
-
+    
+    /// <summary>
+    /// Убираем подсказку
+    /// </summary>
     private void DisableTip()
     {
         ChangeGameObjectActiveState(false);
     }
-
+    
     private void ChangeGameObjectActiveState(bool isActive)
     {
         if (gameObject.activeSelf != isActive)

@@ -8,39 +8,21 @@ using UnityEngine.UI;
 public class UIItem : MonoBehaviour, IUIItem
 {
     [Tooltip("Куда отображать иконку предмета")]
-    [SerializeField] private Image icon;
+    [SerializeField] protected Image icon;
 
     [Tooltip("Куда отображать количества предмета в слоте")] 
     [SerializeField] private Text countText;
 
-    [Tooltip("Кнопка, по которой будет открываться меню с информацией о предмете")] 
-    [SerializeField] private Button infoButton;
+    protected Item_SO currentItem;
 
-    private Item_SO currentItem;
-
-    public static event Action<RectTransform, Item_SO> OnItemClicked;
-
-    private void Awake()
+    protected virtual void Awake()
     {
-        infoButton.onClick.AddListener(OnItemClick);
-        ItemTip.OnItemDestroyed += RemoveItem;
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
-        infoButton.onClick.RemoveListener(OnItemClick);
-        ItemTip.OnItemDestroyed -= RemoveItem;
     }
-    
-    /// <summary>
-    /// Метод, который вызывается при клике на предмет
-    /// </summary>
-    private void OnItemClick()
-    {
-        if (currentItem != null)
-            OnItemClicked?.Invoke((RectTransform)transform, currentItem);
-    }
-    
+
     /// <summary>
     /// Метод для изменения состояния картинки, текста
     /// </summary>
@@ -51,22 +33,38 @@ public class UIItem : MonoBehaviour, IUIItem
         icon.enabled = isIconActive;
         countText.enabled = isTextActive;
     }
-
-    private void RemoveItem(Item_SO item)
+    
+    /// <summary>
+    /// Метод для удаления текущего предмета
+    /// </summary>
+    /// <param name="item"></param>
+    protected void RemoveItem(Item_SO item)
     {
         if (currentItem == item)
             currentItem = null;
     }
     
-    public void InitItem(Item_SO item, int itemCount, bool isIconActive = true, bool isTextActive = true)
+    /// <summary>
+    /// Метод для выставления значений инициализации
+    /// </summary>
+    /// <param name="itemView">Иконка предмета</param>
+    /// <param name="itemCount">Количество предметов</param>
+    /// <param name="isIconActive">Будет ли активна иконка</param>
+    /// <param name="isTextActive">Будет ли активно отображение количества предметов</param>
+    protected virtual void SetValue(Sprite itemView, int itemCount = 0, bool isIconActive = true, bool isTextActive = true)
     {
         if (icon.enabled != isIconActive || countText.enabled != isTextActive)
             ChangeItemViewState(isIconActive, isTextActive);
-
-        currentItem = item;
-        icon.sprite = currentItem.Icon;
         countText.text = itemCount.ToString();
+        icon.sprite = itemView;
     }
+    
+    public void InitItem(Item_SO item, int itemCount = 0, bool isIconActive = true, bool isTextActive = true)
+    {
+        SetValue(item != null ? item.Icon : null, itemCount, isIconActive, isTextActive);
+        currentItem = item;
+    }
+    
 
     public void DisableItem()
     {
@@ -83,10 +81,12 @@ public interface IUIItem
     /// <param name="itemCount">Количество предметов</param>
     /// <param name="isIconActive">Будет ли активна иконка</param>
     /// <param name="isTextActive">Будет ли активно отображение количества предметов</param>
-    void InitItem(Item_SO item, int itemCount, bool isIconActive = true, bool isTextActive = true);
+    void InitItem(Item_SO item, int itemCount = 0, bool isIconActive = true, bool isTextActive = true);
+    
     
     /// <summary>
     /// Метод для сокрытия предмета
     /// </summary>
     void DisableItem();
+
 }

@@ -14,30 +14,19 @@ public class Item_SO : ScriptableObject
     [Tooltip("Тип предмета")]
     [SerializeField] private ItemType type;
 
-    [Tooltip("Стакающийся ли предмет")] 
-    [SerializeField] private ItemStuckType stuckType;
-
     [Tooltip("Иконка предмета")] 
     [SerializeField] private Sprite icon;
 
     public string ItemName => itemName;
     public ItemType Type => type;
-    public ItemStuckType StuckType => stuckType;
     public Sprite Icon => icon;
 }
 
-[Serializable]
-public enum ItemStuckType
-{
-    STUCKABLE,
-    UNSTUCKABLE
-}
-
-[Serializable]
 public enum ItemType
 {
     WEAPON,
     AMMO,
-    ARMOR,
+    SHIELD,
+    HELMET,
     SUPPORT
 }

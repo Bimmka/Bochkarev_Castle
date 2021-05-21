@@ -17,35 +17,49 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         LoadItems();
-        
+
+        ItemTip.OnItemDestroyed += RemoveItem;
+    }
+    private void OnDestroy()
+    {
+        SaveItems();
+        ItemTip.OnItemDestroyed -= RemoveItem;
+    }
+
+    private void Start()
+    {
+        DisplayInventoryItems();
+    }
+    
+    /// <summary>
+    /// Мето для отображения итемов из сохранения
+    /// </summary>
+    private void DisplayInventoryItems()
+    {
         for (int i = 0; i < items.Count; i++)
         {
             OnInventoryChanged?.Invoke(items[i].Item, items[i].Count);
         }
-
-        ItemTip.OnItemDestroyed += RemoveItem;
-    }
-
-    private void OnDisable()
-    {
-        SaveItems();
-    }
-
-    private void OnDestroy()
-    {
-        ItemTip.OnItemDestroyed -= RemoveItem;
     }
 
     private void SaveItems()
     {
-        DataSaver.SaveJson(Path.Combine(Application.dataPath, DataSaver.PlayerInventoryFileName), items);
+        DataSaver.SaveListToJson(Path.Combine(Application.dataPath, DataSaver.PlayerInventoryFileName), items);
     }
 
-    private void LoadItems()
+    private async void LoadItems()
     {
-        items = DataSaver.LoadingJson<List<PlayerItem>>(Path.Combine(Application.dataPath, DataSaver.PlayerInventoryFileName));
+        items =  await DataSaver.LoadingJsonToList<PlayerItem>(Path.Combine(Application.dataPath, DataSaver.PlayerInventoryFileName));
+        if (items.Count > 0)
+            for (int i = 0; i < items.Count; i++)
+            {
+                AddItem(items[i].Item, items[i].Count);
+            }
     }
-
+    /// <summary>
+    /// Добавляем предмет в инвентарь
+    /// </summary>
+    /// <param name="newItem">Добавляемый предмет</param>
     private void AddItem(Item_SO newItem)
     {
         PlayerItem playerItem = items.FirstOrDefault(item => item.Item == newItem);
@@ -60,7 +74,21 @@ public class PlayerInventory : MonoBehaviour
         OnInventoryChanged?.Invoke(playerItem.Item, playerItem.Count);
 
     }
-
+    
+    /// <summary>
+    /// Добавляем предмет в инвентарь (используется при инициализации инвентаря)
+    /// </summary>
+    /// <param name="newItem">Предмет</param>
+    /// <param name="count">Количество предмета</param>
+    private void AddItem(Item_SO newItem, int count)
+    {
+        OnInventoryChanged?.Invoke(newItem, count);
+    }
+    
+    /// <summary>
+    /// Убираем предмет из инвентаря
+    /// </summary>
+    /// <param name="removedItem">Предмет, который хотим убрать</param>
     private void RemoveItem(Item_SO removedItem)
     {
         PlayerItem playerItem = items.FirstOrDefault(item => item.Item == removedItem);
@@ -78,10 +106,11 @@ public class PlayerInventory : MonoBehaviour
     }
 }
 
+[Serializable]
 public class PlayerItem
 {
-    private Item_SO item;
-    private int count;
+    [SerializeField] private Item_SO item;
+    [SerializeField] private int count;
 
     public Item_SO Item => item;
 

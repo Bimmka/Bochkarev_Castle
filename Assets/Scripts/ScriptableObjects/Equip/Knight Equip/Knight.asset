@@ -9,10 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b921a9ed6e96dc41af7b8450256882d, type: 3}
-  m_Name: Potion
+  m_Script: {fileID: 11500000, guid: 797254ce2fad7e84dba2815899e7e398, type: 3}
+  m_Name: Knight
   m_EditorClassIdentifier: 
-  itemName: Health Potion
-  type: 4
-  stuckType: 0
-  icon: {fileID: 7449052399205803541, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  equips:
+  - item: {fileID: 0}
+    itemType: 3
+  - item: {fileID: 0}
+    itemType: 2
+  - item: {fileID: 0}
+    itemType: 0
+  - item: {fileID: 0}
+    itemType: 4

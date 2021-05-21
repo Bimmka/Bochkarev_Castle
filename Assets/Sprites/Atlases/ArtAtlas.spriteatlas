@@ -20,10 +20,22 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -32,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: a5b074d8472fe63418af4f54639be47f, type: 3}
-    totalSpriteSurfaceArea: 1853715
+    totalSpriteSurfaceArea: 3073815
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -74,6 +86,7 @@ SpriteAtlas:
   - {fileID: -939168919852961171, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
   - {fileID: -6261783818923089053, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
   - {fileID: -7908921610504284310, guid: 0d8696d9244cfeb4d842abcf548a4461, type: 3}
+  - {fileID: -1534930274208330430, guid: 0eddfb9b7de310048b0de92a4e9c4e7e, type: 3}
   - {fileID: 21300000, guid: 71501edd9f8c70241bf027f91888762f, type: 3}
   m_PackedSpriteNamesToIndex:
   - enemy_knight
@@ -112,6 +125,7 @@ SpriteAtlas:
   - weapon_icons_4
   - weapon_icons_7
   - weapon_icons_6
+  - sumka-02_0
   - player_knight
   m_RenderDataMap: {}
   m_Tag: ArtAtlas
